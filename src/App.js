@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Header from './component/Header';
+import Body from './component/Body';
+
+import API from './lib/API';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export default class App extends Component{
 
-export default App;
+  constructor(props){
+    super(props);
+      this.state = {
+      loaded: false,
+      data: []
+    }
+  }
+
+  //API
+  componentDidMount() {
+    API.fetchData()
+      .then(data => {
+        console.log(data);
+        this.setState({
+          data: data,
+          loaded: true
+        });
+      })
+  }  
+
+  render() {
+    if(this.state.loaded) {
+      return(
+        <React.Fragment>
+          <Header></Header>
+          <Body></Body>
+        </React.Fragment>
+      );
+    }
+    else {
+      return(
+        <div><h1>Loading Smoelenboek</h1></div>
+      );
+    }
+  }
+}
