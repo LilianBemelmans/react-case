@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './component/Header';
 import Body from './component/Body';
+import Kaart from './component/Kaart';
 
 import API from './lib/API';
 import './App.css';
@@ -32,11 +33,14 @@ export default class App extends Component{
       return(
         <React.Fragment>
           <Header></Header>
-          {/*<Body></Body>*/}
-          <div className="row" style={{marginLeft: 40, padding: 20}}>
-            Cards
-          {
-          }
+          <div>
+            <ul>
+              {
+                this.state.data.map( (item) => {
+                  return( <Kaart key={ item.id } data={ item } />)
+                })
+              }
+            </ul>
           </div>
         </React.Fragment>
       );

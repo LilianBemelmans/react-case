@@ -6,7 +6,7 @@ export default class ProfileCard extends Component {
         return (
             <Card>
                 <CardImg
-                src= { this.props.data.img }
+                src="C:\Users\LBEMELM74\Pictures\Ladybugs\colorful ladybugs.jpg"
                 alt="Card image cap">
                 </CardImg>
                 
