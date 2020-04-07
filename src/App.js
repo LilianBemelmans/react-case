@@ -38,10 +38,9 @@ export default class App extends Component{
           <React.Fragment>
             <Switch>
               <Route exact path="/" render={ (props) => <Home data={ this.state.data } /> } />
-                {/*<Route path="/" component={ Home } exact={ true } />
-                <Route path="/lijst" component={ Lijst } exact={ true } />*/} 
-                <Route component={ NotFound } />
-              </Switch>        
+              <Route exact path="/lijst" render={ (props) => <Lijst data={ this.state.data } /> } />
+              <Route component={ NotFound } />
+            </Switch>        
           </React.Fragment>
         </BrowserRouter>
       );

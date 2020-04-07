@@ -13,7 +13,7 @@ export default class Lijst extends Component {
                     Dit is de lijst.
                     <ul>
                         {
-                        this.state.data.map( (item) => {
+                        this.props.data.map( (item) => {
                             return( <Kaart key={ item.id } data={ item } />)
                         })
                         }
