@@ -36,8 +36,8 @@ export default class App extends Component{
       return(
         <BrowserRouter>
           <Switch>
-            <Route path="/" component={ Home }exact />
-            <Route path="/lijst" component={ Lijst } />            
+            <Route path="/:data" component={ Home }exact />
+            <Route path="/lijst/:data" component={ Lijst } />            
             <Route component={ NotFound } />          
           </Switch>        
         </BrowserRouter>
