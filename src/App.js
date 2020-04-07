@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import Header from './component/Header';
-import Body from './component/Body';
-import Kaart from './component/Kaart';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import Home from './component/Home'
+import Lijst from './component/Lijst'
+import NotFound from './component/NotFound'
 
 import API from './lib/API';
+
 import './App.css';
 
 export default class App extends Component{
@@ -31,18 +34,13 @@ export default class App extends Component{
   render() {
     if(this.state.loaded) {
       return(
-        <React.Fragment>
-          <Header></Header>
-          <div>
-            <ul>
-              {
-                this.state.data.map( (item) => {
-                  return( <Kaart key={ item.id } data={ item } />)
-                })
-              }
-            </ul>
-          </div>
-        </React.Fragment>
+        <BrowserRouter>
+          <Switch>
+            <Route path="/" component={ Home }exact />
+            <Route path="/lijst" component={ Lijst } />            
+            <Route component={ NotFound } />          
+          </Switch>        
+        </BrowserRouter>
       );
     }
     else {
