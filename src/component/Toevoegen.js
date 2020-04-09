@@ -20,7 +20,7 @@ export default class Toevoegen extends Component {
   }
   
   //API
-    dataSaved(){
+  dataSaved(){
       var url= "https://api.dev-master.ninja/reactjs/smoelenboek/post"
       var body = JSON.stringify(this.state.data);
       fetch(url, {method: 'POST', headers:{'Content-Type': 'application/json'}, body })
@@ -28,7 +28,32 @@ export default class Toevoegen extends Component {
       .then(data => { console.log(data); })
       .catch( error => {console.log(error);});
       alert("Data has been saved")
-    } 
+  } 
+
+  //Event Handler
+  onChangeFN(event) {
+    var data = this.state.data; 
+    data.firstname = event.target.value
+    this.setState({data: data})
+  }
+  onChangeLN(event) {
+    var data = this.state.data; 
+    data.lastname = event.target.value
+    this.setState({data: data})    
+  }
+  onChangeEM(event) {
+    var data = this.state.data; 
+    data.email = event.target.value
+    this.setState({data: data})    
+  }
+  onChangePH(event) {
+    var data = this.state.data; 
+    data.phone = event.target.value
+    this.setState({data: data})    
+  }
+  saveProfile() {
+    this.refs.uploader.click();
+  }
 
     //Render
     render(){
