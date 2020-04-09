@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import { Header } from './Header';
+
+import Header from  './Header';
 
 
 export default class Toevoegen extends Component {
