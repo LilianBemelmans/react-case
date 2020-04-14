@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 export default class Header extends Component {
     render () {
@@ -21,7 +22,15 @@ export default class Header extends Component {
                             </div>
                         </div>
                     </div>
-                    
+{/*
+                    <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
+                        <DropdownToggle caret>Smoelenboek</DropdownToggle>
+                        <DropdownMenu>
+                            <DropdownItem enabled>Toon Kaarten</DropdownItem>
+                            <DropdownItem>Toon Rijen</DropdownItem>
+                        </DropdownMenu>
+                    </ButtonDropdown>
+*/}
                     <div className="col-md" style={{ textAlign: "left",  marginLeft: 10, padding: 20}}>
                         <h4><a style={{color: "#000000"}} href="/toevoegen">Toevoegen</a></h4>
                    </div>

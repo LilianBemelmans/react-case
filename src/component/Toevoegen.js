@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
-
-import Header from  './Header';
-
+import Header from './Header'
 
 export default class Toevoegen extends Component {
  
   //Constructor
   constructor(props){
     super(props);
-    this.state = {
+    
+      this.state = {
+
       data: { id: "",
               firstname: "",
               lastname: "",
@@ -20,67 +20,103 @@ export default class Toevoegen extends Component {
   }
   
   //API
-  dataSaved(){
+    dataUpload(){
       var url= "https://api.dev-master.ninja/reactjs/smoelenboek/post"
       var body = JSON.stringify(this.state.data);
       fetch(url, {method: 'POST', headers:{'Content-Type': 'application/json'}, body })
-      .then(response => response.json())
-      .then(data => { console.log(data); })
-      .catch( error => {console.log(error);});
-      alert("Data has been saved")
-  } 
+        .then(response => response.json())
+        .then(data => { console.log(data); })
+        .catch( error => {console.log(error);});
+      alert("Data has been uploaded")
+    }    
 
-  //Event Handler
-  onChangeFN(event) {
-    var data = this.state.data; 
-    data.firstname = event.target.value
-    this.setState({data: data})
-  }
-  onChangeLN(event) {
-    var data = this.state.data;  
-    data.lastname = event.target.value
-    this.setState({data: data})    
-  }
-  onChangeEM(event) {
-    var data = this.state.data; 
-    data.email = event.target.value
-    this.setState({data: data})    
-  }
-  onChangePH(event) {
-    var data = this.state.data; 
-    data.phone = event.target.value
-    this.setState({data: data})    
-  }
-  
-  saveProfile() {
-    this.refs.uploader.click();
-  }
+    //Event Handlers
+    onchangeFN(event){
+      var info = this.state.data; 
+      data.firstname = event.target.value
+      this.setState({data: data})
+    }
+
+    onchangeLN(event){
+      let data = this.state.data; 
+      data.lastname = event.target.value
+      this.setState({data: data})
+    }
+
+    onchangeEM(event){
+
+      var info = this.state.data; 
+      info.email = event.target.value
+      this.setState({data: info})
+    }
+    onchangePH(event){
+      var info = this.state.data; 
+      info.phone = event.target.value
+      this.setState({data: info})
+    }
+
+    onchangeIMG(event){
+    var afbeelding = event.target.files[0];
+    var reader = new FileReader();
+    reader.onloadend = () => {
+      var B64 = reader.result;
+      var info = this.state.data; 
+      info.img = B64
+      this.setState({data: info})
+    };
+
+    reader.readAsDataURL(afbeelding)
+    }
+       
+    fileuploadClick(){
+      this.refs.uploader.click();
+      }
 
     //Render
     render(){
+        
         return(
           <React.Fragment>
-              <div className="container-fluid"> 
-                <Header></Header>
+     
+          <div className="container-fluid">
+              <Header></Header>}
+    
+              <div style={{padding: 50}} className="row">
+                <h1 style={{ marginLeft: 327}}> Add Person </h1>
+              </div>
+
+              <div className="row">
+
+              <input type="file" id="file" ref="uploader" onChange={this.onchangeIMG.bind(this)} style={{display:"none"}} /> 
+
+                <div onClick={ ()=>this.fileuploadClick()} className="col-md-6"><KaartToevoegen  data={this.state.data}> </KaartToevoegen></div>
+                
+                <div className="col-md-6" style={{marginTop: 5}}>
+                  
+                   
+                      <label style={{width:100}}> First name:  &nbsp; </label>
+                      <input type="text" style={{width: 500}} onChange={this.onchangeFN.bind(this)} placeholder={"First Name"}/><br></br>
+                   
+                      <label style={{width:100}}> Last name:  &nbsp; </label>
+                    <input type="text" style={{width: 500}} onChange={this.onchangeLN.bind(this)} placeholder={"Last Name"}/> <br></br>
+                     
+                      <label style={{width:100}}> E-mail:  &nbsp; </label>
+                     <input type="text" style={{width: 500}} onChange={this.onchangeEM.bind(this)}  placeholder={"E-Mail"}/><br></br>
+                      
+                      <label style={{width:100}}> Phone:  &nbsp; </label>
+                     <input style={{width: 500}} type="text" onChange={this.onchangePH.bind(this)} placeholder={"Phone"}/><br></br>  
+                      
+                 </div>
+                </div>
 
                 <div className="row">
-                    <div onClick={ ()=>this.saveProfile()} className="col-md-6">
-                        <div className="col-md-6">
-                            <label style={{width:100}}> First name:  &nbsp; </label>
-                            <input type="text" style={{width: 500}} onChange={this.onChangeFN.bind(this)} placeholder={"First Name"}/><br></br>
-                        
-                            <label style={{width:100}}> Last name:  &nbsp; </label>
-                            <input type="text" style={{width: 500}} onChange={this.onChangeLN.bind(this)} placeholder={"Last Name"}/> <br></br>
-                            
-                            <label style={{width:100}}> E-mail:  &nbsp; </label>
-                            <input type="text" style={{width: 500}} onChange={this.onChangeEM.bind(this)}  placeholder={"E-Mail"}/><br></br>
-                            
-                            <label style={{width:100}}> Phone:  &nbsp; </label>
-                            <input style={{width: 500}} type="text" onChange={this.onChangePH.bind(this)} placeholder={"Phone"}/><br></br>
-                        </div>
-                    </div>         
+
+                <button style={{marginLeft: 1750}} className="btn btn-primary" onClick={()=> this.dataUpload()} variant="primary">Upload Data</button>
+              
               </div>
-            </div>
+         
+              </div>
+
           </React.Fragment>
         )
       }

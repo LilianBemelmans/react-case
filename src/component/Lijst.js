@@ -9,7 +9,6 @@ export default class Lijst extends Component {
             <React.Fragment>
                 <Header></Header>
                 <div>
-                    Dit is de lijst.
                     <ul>
                         {
                         this.props.data.map( (item) => {

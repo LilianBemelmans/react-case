@@ -4,9 +4,9 @@ import { Card, CardImg, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 export default class Kaart extends Component {
     render() {
         return (
-            <Card style={{width: "25%",   marginBottom: 20, textAlign: "left", borderColor: "#808080", backgroundColor: 'red'}}>
+            <Card style={{width: "20%", marginBottom: 20, textAlign: "center", borderColor: "#808080", backgroundColor: 'red'}}>
                 <CardImg top
-                         src= { this.props.data.img }
+                        src= { this.props.data.img }
     	                 alt="Image"
                          style={{ borderRadius: "100%",
                          width: 150, height: 150,
@@ -14,7 +14,7 @@ export default class Kaart extends Component {
  
     	        <CardBody>
                     <CardTitle style={{ marginLeft:200, marginTop: -130}} >
-                        <h4>{ (this.props.data.firstname)+" "+(this.props.data.lastname) }</h4>
+                        <h4>{ (this.props.data.firstname) +" "+ (this.props.data.lastname) }</h4>
                     </CardTitle>
                     <CardSubtitle style={{ marginLeft:200, marginTop: 10}} >{ this.props.data.email } </CardSubtitle>
                     <CardSubtitle style={{ marginLeft:200, marginTop: 15}} >{ this.props.data.phone } </CardSubtitle>
