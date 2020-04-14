@@ -93,7 +93,9 @@ export default class Toevoegen extends Component {
                 <Label for="phone">Phone</Label>
                 <Input type="text" onChange={this.onchangePH.bind(this)} placeholder="Phone" />
               </FormGroup>
-              <Button>Submit</Button>
+              <Button className="btn btn-primary" 
+                        onClick={()=> this.dataUpload()} 
+                        variant="primary">Upload Data</Button>
             </Form>
           </React.Fragment>
         )
