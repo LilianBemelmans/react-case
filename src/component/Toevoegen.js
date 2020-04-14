@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import Header from './Header'
+
+import Header from './Header';
+import ToevoegenKaart from './ToevoegenKaart';
 
 export default class Toevoegen extends Component {
  
@@ -32,27 +34,22 @@ export default class Toevoegen extends Component {
 
     //Event Handlers
     onchangeFN(event){
-      var info = this.state.data; 
-      data.firstname = event.target.value
-      this.setState({data: data})
+      this.state.data.firstname = event.target.value
+      this.setState({data: this.state.data})
     }
 
     onchangeLN(event){
-      let data = this.state.data; 
-      data.lastname = event.target.value
-      this.setState({data: data})
+      this.state.data.lastname = event.target.value
+      this.setState({data: this.state.data})
     }
 
     onchangeEM(event){
-
-      var info = this.state.data; 
-      info.email = event.target.value
-      this.setState({data: info})
+      this.state.data.email = event.target.value
+      this.setState({data: this.state.data})
     }
     onchangePH(event){
-      var info = this.state.data; 
-      info.phone = event.target.value
-      this.setState({data: info})
+      this.state.data.phone = event.target.value
+      this.setState({data: this.state.data})
     }
 
     onchangeIMG(event){
@@ -93,8 +90,6 @@ export default class Toevoegen extends Component {
                   <ToevoegenKaart  data={this.state.data}> </ToevoegenKaart></div>
                 
                 <div className="col-md-6" style={{marginTop: 5}}>
-                  
-                   
                       <label style={{width:100}}> First name:  &nbsp; </label>
                       <input type="text" style={{width: 500}} onChange={this.onchangeFN.bind(this)} placeholder={"First Name"}/><br></br>
                    
@@ -111,8 +106,10 @@ export default class Toevoegen extends Component {
                 </div>
 
                 <div className="row">
-
-                <button style={{marginLeft: 1750}} className="btn btn-primary" onClick={()=> this.dataUpload()} variant="primary">Upload Data</button>
+                <button className="btn btn-primary" 
+                        onClick={()=> this.dataUpload()} 
+                        variant="primary">Upload Data
+                </button>
               
               </div>
          
