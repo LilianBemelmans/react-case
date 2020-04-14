@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from './Header';
-import Kaart from './Kaart';
+import Regel from './Regel';
 
 export default class Lijst extends Component {
     render(){
@@ -13,7 +13,7 @@ export default class Lijst extends Component {
                     <ul>
                         {
                         this.props.data.map( (item) => {
-                            return( <Kaart key={ item.id } data={ item } />)
+                            return( <Regel key={ item.id } data={ item } />)
                         })
                         }
                     </ul>

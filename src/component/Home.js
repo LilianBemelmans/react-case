@@ -9,13 +9,11 @@ export default class Home extends Component {
             <React.Fragment>
                 <Header></Header>
                 <div className="row" style={{marginLeft: 40, padding: 20}}>
-                    <ul>
-                        {
+                    {
                         this.props.data.map( (item) => {
                             return( <Kaart key={ item.id } data={ item } />)
                         })
-                        }
-                    </ul>
+                    }
                 </div>
             </React.Fragment>
         )

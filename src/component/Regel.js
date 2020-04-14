@@ -1,10 +1,10 @@
 import React, { Component} from "react";
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 
-export default class Kaart extends Component {
+export default class Regel extends Component {
     render() {
         return (
-            <Card style={{width: "25%",   marginBottom: 20, textAlign: "left", borderColor: "#808080", backgroundColor: 'red'}}>
+            <Card style={{width: "100%",   marginBottom: 20, textAlign: "left", borderColor: "#808080", backgroundColor: 'green' }}>
                 <CardImg top
                          src= { this.props.data.img }
     	                 alt="Image"
