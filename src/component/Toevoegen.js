@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 import Header from './Header';
 import ToevoegenKaart from './ToevoegenKaart';
@@ -74,47 +75,26 @@ export default class Toevoegen extends Component {
         
         return(
           <React.Fragment>
-     
-          <div className="container-fluid">
-              <Header></Header>}
-    
-              <div style={{padding: 50}} className="row">
-                <h1 style={{ marginLeft: 327}}> Add Person </h1>
-              </div>
-
-              <div className="row">
-
-              <input type="file" id="file" ref="uploader" onChange={this.onchangeIMG.bind(this)} style={{display:"none"}} /> 
-
-                <div onClick={ ()=>this.fileuploadClick()} className="col-md-6">
-                  <ToevoegenKaart  data={this.state.data}> </ToevoegenKaart></div>
-                
-                <div className="col-md-6" style={{marginTop: 5}}>
-                      <label style={{width:100}}> First name:  &nbsp; </label>
-                      <input type="text" style={{width: 500}} onChange={this.onchangeFN.bind(this)} placeholder={"First Name"}/><br></br>
-                   
-                      <label style={{width:100}}> Last name:  &nbsp; </label>
-                    <input type="text" style={{width: 500}} onChange={this.onchangeLN.bind(this)} placeholder={"Last Name"}/> <br></br>
-                     
-                      <label style={{width:100}}> E-mail:  &nbsp; </label>
-                     <input type="text" style={{width: 500}} onChange={this.onchangeEM.bind(this)}  placeholder={"E-Mail"}/><br></br>
-                      
-                      <label style={{width:100}}> Phone:  &nbsp; </label>
-                     <input style={{width: 500}} type="text" onChange={this.onchangePH.bind(this)} placeholder={"Phone"}/><br></br>  
-                      
-                 </div>
-                </div>
-
-                <div className="row">
-                <button className="btn btn-primary" 
-                        onClick={()=> this.dataUpload()} 
-                        variant="primary">Upload Data
-                </button>
-              
-              </div>
-         
-              </div>
-
+            <Header></Header>
+            <Form>
+              <FormGroup>
+                <Label for="firstName">First Name</Label>
+                <Input type="text" onChange={this.onchangeFN.bind(this)} placeholder="First Name" />
+              </FormGroup>
+              <FormGroup>
+                <Label for="lastName">Last Name</Label>
+                <Input type="text" onChange={this.onchangeLN.bind(this)} placeholder="Last Name" />
+              </FormGroup>
+              <FormGroup>
+                <Label for="email">Email</Label>
+                <Input type="text" onChange={this.onchangeEM.bind(this)} placeholder="Email" />
+              </FormGroup>
+              <FormGroup>
+                <Label for="phone">Phone</Label>
+                <Input type="text" onChange={this.onchangePH.bind(this)} placeholder="Phone" />
+              </FormGroup>
+              <Button>Submit</Button>
+            </Form>
           </React.Fragment>
         )
       }
