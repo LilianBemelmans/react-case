@@ -37,7 +37,7 @@ export default class Toevoegen extends Component {
     this.setState({data: data})
   }
   onChangeLN(event) {
-    var data = this.state.data; 
+    var data = this.state.data;  
     data.lastname = event.target.value
     this.setState({data: data})    
   }
@@ -51,6 +51,7 @@ export default class Toevoegen extends Component {
     data.phone = event.target.value
     this.setState({data: data})    
   }
+  
   saveProfile() {
     this.refs.uploader.click();
   }
@@ -66,16 +67,16 @@ export default class Toevoegen extends Component {
                     <div onClick={ ()=>this.saveProfile()} className="col-md-6">
                         <div className="col-md-6">
                             <label style={{width:100}}> First name:  &nbsp; </label>
-                            <input type="text" style={{width: 500}} onChange={this.onchangeFN.bind(this)} placeholder={"First Name"}/><br></br>
+                            <input type="text" style={{width: 500}} onChange={this.onChangeFN.bind(this)} placeholder={"First Name"}/><br></br>
                         
                             <label style={{width:100}}> Last name:  &nbsp; </label>
-                            <input type="text" style={{width: 500}} onChange={this.onchangeLN.bind(this)} placeholder={"Last Name"}/> <br></br>
+                            <input type="text" style={{width: 500}} onChange={this.onChangeLN.bind(this)} placeholder={"Last Name"}/> <br></br>
                             
                             <label style={{width:100}}> E-mail:  &nbsp; </label>
-                            <input type="text" style={{width: 500}} onChange={this.onchangeEM.bind(this)}  placeholder={"E-Mail"}/><br></br>
+                            <input type="text" style={{width: 500}} onChange={this.onChangeEM.bind(this)}  placeholder={"E-Mail"}/><br></br>
                             
                             <label style={{width:100}}> Phone:  &nbsp; </label>
-                            <input style={{width: 500}} type="text" onChange={this.onchangePH.bind(this)} placeholder={"Phone"}/><br></br>
+                            <input style={{width: 500}} type="text" onChange={this.onChangePH.bind(this)} placeholder={"Phone"}/><br></br>
                         </div>
                     </div>         
               </div>
