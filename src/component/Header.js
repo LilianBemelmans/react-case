@@ -35,12 +35,12 @@ export default class Header extends Component {
     render () {
         return(
             <React.Fragment>
-                <div className="row" style={{padding: 0, backgroundColor: "#f2f2f2"}}>
+                <div className="row" style={{ width: '100%', padding: 0, backgroundColor: "#f2f2f2"}}>
                     <Navbar color="light" light expand="md">
                         <NavbarBrand href="/">Smoelenboek</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.isOpen} navbar>
-                            <Nav className="mr-auto" navbar>
+                            <Nav className="float-right mr-auto" navbar>
                                 <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle tag="a" className="nav-link" caret>
                                         Smoelenboek

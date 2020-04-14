@@ -4,7 +4,7 @@ import { Card, CardImg, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 export default class Kaart extends Component {
     render() {
         return (
-            <Card style={{width: "20%", marginBottom: 20, textAlign: "center", borderColor: "#808080", backgroundColor: 'red'}}>
+            <Card style={{width: "25%", marginBottom: 20, textAlign: "center", borderColor: "#808080", backgroundColor: 'red'}}>
                 <CardImg top
                         src= { this.props.data.img }
     	                 alt="Image"

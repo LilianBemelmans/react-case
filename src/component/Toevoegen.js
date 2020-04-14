@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Row, Col } from 'reactstrap';
 
 import Header from './Header';
 import ToevoegenKaart from './ToevoegenKaart';
@@ -76,23 +76,37 @@ export default class Toevoegen extends Component {
         return(
           <React.Fragment>
             <Header></Header>
+            <div style={{padding: 50}} className="row">
+                <h1 style={{ marginLeft: 327}}> Add Person </h1>
+            </div>
+
             <Form>
-              <FormGroup>
-                <Label for="firstName">First Name</Label>
-                <Input type="text" onChange={this.onchangeFN.bind(this)} placeholder="First Name" />
-              </FormGroup>
-              <FormGroup>
-                <Label for="lastName">Last Name</Label>
-                <Input type="text" onChange={this.onchangeLN.bind(this)} placeholder="Last Name" />
-              </FormGroup>
-              <FormGroup>
-                <Label for="email">Email</Label>
-                <Input type="text" onChange={this.onchangeEM.bind(this)} placeholder="Email" />
-              </FormGroup>
-              <FormGroup>
-                <Label for="phone">Phone</Label>
-                <Input type="text" onChange={this.onchangePH.bind(this)} placeholder="Phone" />
-              </FormGroup>
+              <Row form>
+                <Col md={6} onClick={ ()=>this.fileuploadClick()} >
+                  <FormGroup>
+                    <Input type="file" id="file" ref="uploader" onChange={this.onchangeIMG.bind(this)} style={{display:"none"}} />
+                    <ToevoegenKaart  data={this.state.data}> </ToevoegenKaart>
+                  </FormGroup>
+                </Col>
+                <Col md={6}>
+                  <FormGroup>
+                    <Label for="firstName">First Name</Label>
+                    <Input type="text" onChange={this.onchangeFN.bind(this)} placeholder="First Name" />
+                  </FormGroup>
+                  <FormGroup>
+                      <Label for="lastName">Last Name</Label>
+                      <Input type="text" onChange={this.onchangeLN.bind(this)} placeholder="Last Name" />
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="email">Email</Label>
+                    <Input type="text" onChange={this.onchangeEM.bind(this)} placeholder="Email" />
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="phone">Phone</Label>
+                    <Input type="text" onChange={this.onchangePH.bind(this)} placeholder="Phone" />
+                  </FormGroup>
+                </Col>
+              </Row>
               <Button className="btn btn-primary" 
                         onClick={()=> this.dataUpload()} 
                         variant="primary">Upload Data</Button>
