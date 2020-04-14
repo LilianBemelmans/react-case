@@ -82,10 +82,12 @@ export default class Toevoegen extends Component {
 
             <Form>
               <Row form>
-                <Col md={6} onClick={ ()=>this.fileuploadClick()} >
+                <Col md={6}>
                   <FormGroup>
                     <Input type="file" id="file" ref="uploader" onChange={this.onchangeIMG.bind(this)} style={{display:"none"}} />
-                    <ToevoegenKaart  data={this.state.data}> </ToevoegenKaart>
+                    <div onClick={ ()=>this.fileuploadClick()}>
+                      <ToevoegenKaart  data={this.state.data}> </ToevoegenKaart>
+                    </div>
                   </FormGroup>
                 </Col>
                 <Col md={6}>

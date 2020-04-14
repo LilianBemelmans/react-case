@@ -6,7 +6,7 @@ export default class Kaart extends Component {
         return (
             <Card style={{width: "25%", marginBottom: 20, textAlign: "center", borderColor: "#808080", backgroundColor: 'red'}}>
                 <CardImg top
-                        src= { this.props.data.img }
+                         src= { this.props.data.img }
     	                 alt="Image"
                          style={{ borderRadius: "100%",
                          width: 150, height: 150,
