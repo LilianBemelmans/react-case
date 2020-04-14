@@ -89,7 +89,8 @@ export default class Toevoegen extends Component {
 
               <input type="file" id="file" ref="uploader" onChange={this.onchangeIMG.bind(this)} style={{display:"none"}} /> 
 
-                <div onClick={ ()=>this.fileuploadClick()} className="col-md-6"><KaartToevoegen  data={this.state.data}> </KaartToevoegen></div>
+                <div onClick={ ()=>this.fileuploadClick()} className="col-md-6">
+                  <ToevoegenKaart  data={this.state.data}> </ToevoegenKaart></div>
                 
                 <div className="col-md-6" style={{marginTop: 5}}>
                   
