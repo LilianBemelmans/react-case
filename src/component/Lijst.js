@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import Header from './Header';
-import Body from './Body';
 import Kaart from './Kaart';
 
 export default class Lijst extends Component {

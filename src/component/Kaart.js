@@ -4,14 +4,24 @@ import { Card, CardImg, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 export default class ProfileCard extends Component {
     render() {
         return (
-            <li key={ this.props.data.id.toString() }>
-                <div>
-                <img src={ this.props.data.img } alt="Image" />
-                <p>{ this.props.data.firstname + " " + this.props.data.lastname }</p>
-                <p>{ this.props.data.email }</p>
-                <p>{ this.props.data.phone }</p>
-                </div>
-            </li>
+            <Card style={{width: "100%",   marginBottom: 20, textAlign: "left", borderColor: "#808080"}}>
+                <CardImg top
+                         src= { this.props.data.img }
+    	                 alt="Image"
+                         style={{ borderRadius: "100%",
+                         width: 150, height: 150,
+                         marginLeft: 20, marginTop: 20, marginBottom: -20}}/>
+ 
+    	        <CardBody>
+                    <CardTitle style={{ marginLeft:200, marginTop: -130}} >
+                        <h4>{ (this.props.data.firstname)+" "+(this.props.data.lastname) }</h4>
+                    </CardTitle>
+                    <CardSubtitle style={{ marginLeft:200, marginTop: 10}} >{ this.props.data.email } </CardSubtitle>
+                    <CardSubtitle style={{ marginLeft:200, marginTop: 15}} >{ this.props.data.phone } </CardSubtitle>
+
+                </CardBody>
+            </Card>
+
         );
     }
 }

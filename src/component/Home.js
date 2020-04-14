@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import Header from './Header';
-import Body from './Body';
 import Kaart from './Kaart';
 
 export default class Home extends Component {
@@ -9,7 +8,7 @@ export default class Home extends Component {
         return(
             <React.Fragment>
                 <Header></Header>
-                <div>
+                <div className="row" style={{marginLeft: 40, padding: 20}}>
                     <ul>
                         {
                         this.props.data.map( (item) => {
