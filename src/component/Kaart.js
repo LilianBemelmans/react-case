@@ -20,6 +20,10 @@ export default class Kaart extends Component {
                     <CardSubtitle style={{ marginLeft:200, marginTop: 15}} >{ this.props.data.phone } </CardSubtitle>
 
                 </CardBody>
+
+                <CardFooter>
+                    Show
+                </CardFooter>
             </Card>
 
         );
