@@ -4,6 +4,7 @@ import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardFooter, Button } 
 export default class Kaart extends Component {
     render() {
         return (
+            <React.Fragment>
             <Card style={{width: "25%", marginBottom: 20, textAlign: "center", borderColor: "#808080", backgroundColor: 'red'}}>
                 <CardImg top
                          src= { this.props.data.img }
@@ -22,9 +23,32 @@ export default class Kaart extends Component {
                 </CardBody>
 
                 <CardFooter>
-                    <Button tag="a" href="/EditKaart" >Show</Button>
+                    {/*<Button tag="a" href="/Edit" >Show</Button>*/}
+                    <Button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Show</Button>
                 </CardFooter>
             </Card>
+
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+                </div>
+            </div>
+            </div>
+            </React.Fragment>
 
         );
     }
