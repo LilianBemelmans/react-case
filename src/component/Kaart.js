@@ -1,5 +1,5 @@
 import React, { Component} from "react";
-import { Card, CardImg, CardBody, CardTitle, CardSubtitle } from "reactstrap";
+import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardFooter } from "reactstrap";
 
 export default class Kaart extends Component {
     render() {
