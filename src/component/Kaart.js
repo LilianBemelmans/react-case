@@ -1,5 +1,5 @@
 import React, { Component} from "react";
-import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardFooter } from "reactstrap";
+import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardFooter, Button } from "reactstrap";
 
 export default class Kaart extends Component {
     render() {
@@ -22,7 +22,7 @@ export default class Kaart extends Component {
                 </CardBody>
 
                 <CardFooter>
-                    Show
+                    <Button tag="a" href="/EditKaart" >Show</Button>
                 </CardFooter>
             </Card>
 
